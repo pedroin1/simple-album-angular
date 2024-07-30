@@ -1,0 +1,29 @@
+<div class="card-container">
+  <div class="card-header">
+    <div class="input-wrapper">
+      <label for="input-id">Id</label>
+      <input id="input-id" type="text" [(ngModel)]="id" />
+    </div>
+    <div class="input-wrapper">
+      <label for="input-author">Author</label>
+      <input id="input-author" type="text" [(ngModel)]="author" />
+    </div>
+    <div class="input-wrapper">
+      <label for="input-musica">Musica</label>
+      <input id="input-musica" type="text" [(ngModel)]="music" />
+    </div>
+    <button class="btn-criar" (click)="onCreateMusic()">Criar +</button>
+  </div>
+  <div class="card-content">
+    <h3>Minha Lista de Musicas....</h3>
+    <div>
+      @for (item of musicList$ | async; track $index) {
+      <app-card-music
+        id="{{ item.id }}"
+        author="{{ item.author }}"
+        music="{{ item.music }}"
+      />
+      }
+    </div>
+  </div>
+</div>
