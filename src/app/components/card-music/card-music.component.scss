@@ -1,4 +1,31 @@
 .card-container {
   display: flex;
   gap: 1rem;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #e1e1e1;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.info-music-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-wrapper {
+  button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 8px 4px;
+    cursor: pointer;
+  }
+  .edit {
+    background-color: #2e8b57;
+  }
+  .remove {
+    background-color: #dc143c;
+  }
 }

@@ -1,7 +1,15 @@
 <div class="card-container">
   <span>{{ id }}</span>
-  <span>{{ author }}</span>
-  <span>{{ music }}</span>
-  <button (click)="editMusic()">editar</button>
-  <button (click)="removeMusic()">remover</button>
+  <div class="info-music-container">
+    <p>
+      Author: <span>{{ author }}</span>
+    </p>
+    <p>
+      Musica: <span>{{ music }}</span>
+    </p>
+  </div>
+  <div class="btn-wrapper">
+    <button class="edit" (click)="editMusic()">editar</button>
+    <button class="remove" (click)="removeMusic()">remover</button>
+  </div>
 </div>
