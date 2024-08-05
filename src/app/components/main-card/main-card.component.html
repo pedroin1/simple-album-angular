@@ -22,6 +22,8 @@
         id="{{ item.id }}"
         author="{{ item.author }}"
         music="{{ item.music }}"
+        (onEventEditMusic)="onEditMusic(item.id, item.author, item.music)"
+        (onEventRemoveMusic)="onRemoveMusic(item.id)"
       />
       }
     </div>

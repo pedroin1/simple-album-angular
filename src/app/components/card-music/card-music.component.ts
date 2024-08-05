@@ -13,6 +13,11 @@ export class CardMusicComponent {
   @Input({ required: true }) music: string = '';
 
   @Output() onEventRemoveMusic = new EventEmitter();
+  @Output() onEventEditMusic = new EventEmitter();
+
+  editMusic() {
+    this.onEventEditMusic.emit();
+  }
 
   removeMusic() {
     this.onEventRemoveMusic.emit();

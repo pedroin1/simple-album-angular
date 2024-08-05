@@ -25,4 +25,10 @@ export class MusicService {
       mewMusic
     );
   }
+
+  deleteMusic(musicId: number): Observable<void> {
+    return this.httpClient.delete<void>(
+      `http://localhost:3000/musicas/${musicId}`
+    );
+  }
 }

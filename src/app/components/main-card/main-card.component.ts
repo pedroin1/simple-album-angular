@@ -21,13 +21,26 @@ export class MainCardComponent implements OnInit {
   musicList$ = this.musicService.getMusicsObservable();
 
   onCreateMusic() {
+    const randomId = Math.floor(Math.random() * 1000);
     const newMusic: IMusic = {
-      id: this.id,
+      id: randomId,
       author: this.author,
       music: this.music,
     };
 
     this.musicService.createMusic(newMusic).subscribe(() => {
+      this.musicList$ = this.musicService.getMusics();
+    });
+  }
+
+  onEditMusic(id: number, author: string, music: string) {
+    this.id = id;
+    this.author = author;
+    this.music = music;
+  }
+
+  onRemoveMusic(id: number) {
+    this.musicService.deleteMusic(id).subscribe(() => {
       this.musicList$ = this.musicService.getMusics();
     });
   }
