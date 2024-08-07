@@ -3,30 +3,60 @@
   height: 500px;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #f3f3f3;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .card-header {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .input-wrapper {
-  flex: 1;
+  flex: 0.8;
   display: flex;
   flex-direction: column;
+
+  input {
+    padding: 2px 4px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #e1e1e1;
+    outline: none;
+    font-size: 14px;
+
+    &:focus {
+      border-color: #6d8ce8;
+    }
+  }
 }
 
-.btn-criar {
+.btn-criar,
+.btn-limpar,
+.btn-editar {
   flex: 0.3;
-  background-color: #6d8ce8;
-  font-weight: bold;
   border: transparent;
   outline: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
   color: white;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-criar {
+  background-color: #6d8ce8;
+}
+
+.btn-editar {
+  background-color: #04aa6d;
+}
+
+.btn-limpar {
+  color: #010101;
+  background-color: #e7e9eb;
 }
 
 .card-list-content {

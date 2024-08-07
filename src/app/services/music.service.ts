@@ -15,20 +15,27 @@ export class MusicService {
     return this.musics$.asObservable();
   }
 
-  getMusics(): Observable<IMusic[]> {
-    return this.httpClient.get<IMusic[]>('http://localhost:3000/musicas');
+  getMusics() {
+    return this.httpClient.get<IMusic[]>('http://localhost:3000/musics');
   }
 
-  createMusic(mewMusic: IMusic): Observable<IMusic[]> {
-    return this.httpClient.post<IMusic[]>(
-      'http://localhost:3000/musicas',
-      mewMusic
+  createMusic(newMusic: IMusic) {
+    return this.httpClient.post<IMusic>(
+      'http://localhost:3000/musics',
+      newMusic
     );
   }
 
-  deleteMusic(musicId: number): Observable<void> {
+  updateMusic(updatedMusic: IMusic) {
+    return this.httpClient.put<IMusic>(
+      'http://localhost:3000/musics/' + updatedMusic.id,
+      updatedMusic
+    );
+  }
+
+  deleteMusic(musicId: number) {
     return this.httpClient.delete<void>(
-      `http://localhost:3000/musicas/${musicId}`
+      'http://localhost:3000/musics/' + musicId
     );
   }
 }

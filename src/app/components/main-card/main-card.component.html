@@ -1,18 +1,36 @@
 <div class="card-container">
   <div class="card-header">
     <div class="input-wrapper">
-      <label for="input-id">Id</label>
-      <input id="input-id" type="text" [(ngModel)]="id" />
+      <input
+        id="input-id"
+        placeholder="Id"
+        disabled
+        type="text"
+        [(ngModel)]="id"
+      />
     </div>
     <div class="input-wrapper">
-      <label for="input-author">Author</label>
-      <input id="input-author" type="text" [(ngModel)]="author" />
+      <input
+        id="input-author"
+        placeholder="Author"
+        type="text"
+        [(ngModel)]="author"
+      />
     </div>
     <div class="input-wrapper">
-      <label for="input-musica">Musica</label>
-      <input id="input-musica" type="text" [(ngModel)]="music" />
+      <input
+        id="input-musica"
+        placeholder="Musica"
+        type="text"
+        [(ngModel)]="music"
+      />
     </div>
-    <button class="btn-criar" (click)="onCreateMusic()">Criar +</button>
+    @if (id > 0) {
+    <button class="btn-editar" (click)="onUpdateMusic()">Editar</button>
+    } @else {
+    <button class="btn-criar" (click)="onCreateMusic()">Criar</button>
+    }
+    <button class="btn-limpar" (click)="clearFields()">Limpar</button>
   </div>
   <div class="card-list-content">
     <h3>Minha Lista de Musicas....</h3>
@@ -22,7 +40,9 @@
         id="{{ item.id }}"
         author="{{ item.author }}"
         music="{{ item.music }}"
-        (onEventEditMusic)="onEditMusic(item.id, item.author, item.music)"
+        (onEventEditMusic)="
+          completeFieldsToEdit(item.id, item.author, item.music)
+        "
         (onEventRemoveMusic)="onRemoveMusic(item.id)"
       />
       }

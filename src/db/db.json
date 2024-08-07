@@ -1,14 +1,9 @@
 {
-  "musicas": [
+  "musics": [
     {
-      "id": 318,
-      "author": "Teste",
-      "music": "Minha musica teste"
-    },
-    {
-      "id": 542,
-      "author": "Teste 2",
-      "music": " 3"
+      "id": 569,
+      "author": "aaaa",
+      "music": "bbbb"
     }
   ]
 }

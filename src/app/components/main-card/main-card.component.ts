@@ -20,6 +20,18 @@ export class MainCardComponent implements OnInit {
   musicService = inject(MusicService);
   musicList$ = this.musicService.getMusicsObservable();
 
+  clearFields() {
+    this.id = 0;
+    this.author = '';
+    this.music = '';
+  }
+
+  completeFieldsToEdit(id: number, author: string, music: string) {
+    this.id = id;
+    this.author = author;
+    this.music = music;
+  }
+
   onCreateMusic() {
     const randomId = Math.floor(Math.random() * 1000);
     const newMusic: IMusic = {
@@ -33,10 +45,16 @@ export class MainCardComponent implements OnInit {
     });
   }
 
-  onEditMusic(id: number, author: string, music: string) {
-    this.id = id;
-    this.author = author;
-    this.music = music;
+  onUpdateMusic() {
+    const updatedMusic: IMusic = {
+      id: this.id,
+      author: this.author,
+      music: this.music,
+    };
+
+    this.musicService.updateMusic(updatedMusic).subscribe(() => {
+      this.musicList$ = this.musicService.getMusics();
+    });
   }
 
   onRemoveMusic(id: number) {
