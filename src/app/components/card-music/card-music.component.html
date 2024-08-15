@@ -1,15 +1,19 @@
 <div class="card-container">
-  <span>{{ id }}</span>
   <div class="info-music-container">
+    <span class="wrapper-id">{{ id }}</span>
     <p>
       Author: <span>{{ author }}</span>
     </p>
     <p>
       Musica: <span>{{ music }}</span>
     </p>
-  </div>
-  <div class="btn-wrapper">
-    <button class="edit" (click)="editMusic()">editar</button>
-    <button class="remove" (click)="removeMusic()">remover</button>
+    <div class="btn-wrapper">
+      <button class="edit" (click)="editMusic()">
+        <lucide-icon name="pencil"></lucide-icon>
+      </button>
+      <button class="remove" (click)="removeMusic()">
+        <lucide-icon name="circle-x"></lucide-icon>
+      </button>
+    </div>
   </div>
 </div>

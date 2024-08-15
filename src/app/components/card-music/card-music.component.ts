@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { LucideAngularModule } from 'lucide-angular';
 @Component({
   selector: 'app-card-music',
   standalone: true,
-  imports: [],
+  imports: [LucideAngularModule],
   templateUrl: './card-music.component.html',
   styleUrl: './card-music.component.scss',
 })
